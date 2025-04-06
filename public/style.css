@@ -201,16 +201,14 @@ background: radial-gradient(circle, rgba(182,63,251,1) 0%, rgba(0,0,0,1) 70%);
 
 .content__container > div{
   display: flex;
+  padding:1em;
   
 }
 .content__container > div > div{
   max-width: 50%;
   
 }
-.content__container > div{
-  display: flex;
-  
-}
+
 .content__container img{
 max-width:50%;
  max-height:90vh;
@@ -226,8 +224,10 @@ a{
 .header{
     display:flex;
     justify-content: space-between;
-    margin-inline:2em;
+    padding-inline:2em;
     align-items: center;
+    padding-block:1em ;
+    border-bottom: 2px solid white;
 }
 
 .cards__container{
@@ -357,4 +357,3 @@ font-family: "Signika Negative", sans-serif;
     aspect-ratio: 1;
     border: 1px solid white;
 }
-
