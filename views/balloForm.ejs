@@ -1,0 +1,101 @@
+
+
+
+<form
+hx-post="/<%= ballo %>/<%= passo[0].passo %>"
+hx-swap="innerHTML"
+hx-target=".wrapper"
+hx-push-url="true"
+class="passo__form"
+>
+<fieldset>
+    <legend>Conoscenza del passo:</legend>
+    <div>
+        <input checked type="radio" id="sconosciuto" name="passo" value="sconosciuto">
+        <label for="sconosciuto">Sconosciuto</label>
+    </div>
+    <div>
+        <input type="radio" id="imparato" name="passo" value="imparato">
+        <label for="imparato">Imparato</label>
+    </div>
+    <div>
+        <input type="radio" id="perfetto" name="passo" value="perfetto">
+        <label for="perfetto">Perfetto</label>
+    </div>
+</fieldset>
+
+<div class="progresso">
+    <div>
+        <label for="imparato">Imparato: </label>
+        
+        <select name="imparato" id="imparato">
+          <option value="0">0%</option>
+          <option value="1">20%</option>
+          <option value="2">40%</option>
+          <option value="3">60%</option>
+          <option value="4">80%</option>
+          <option value="5">100%</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="posizione">Posizione dei Piedi: </label>
+        <select name="posizione" id="posizione">
+          <option value="0">0%</option>
+          <option value="1">20%</option>
+          <option value="2">40%</option>
+          <option value="3">60%</option>
+          <option value="4">80%</option>
+          <option value="5">100%</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="tempo">Tempo: </label>
+        <select name="tempo" id="tempo">
+          <option value="0">0%</option>
+          <option value="1">20%</option>
+          <option value="2">40%</option>
+          <option value="3">60%</option>
+          <option value="4">80%</option>
+          <option value="5">100%</option>
+        </select>
+    </div>
+    
+    <div>
+        <label for="guida">Guida e Rispondenza: </label>
+        <select name="guida" id="guida">
+          <option value="0">0%</option>
+          <option value="1">20%</option>
+          <option value="2">40%</option>
+          <option value="3">60%</option>
+          <option value="4">80%</option>
+          <option value="5">100%</option>
+        </select>
+    </div>
+   
+    <div>
+        <label for="stile">Stile: </label>
+        <select name="stile" id="stile">
+          <option value="0">0%</option>
+          <option value="1">20%</option>
+          <option value="2">40%</option>
+          <option value="3">60%</option>
+          <option value="4">80%</option>
+          <option value="5">100%</option>
+        </select>
+    </div>
+   
+    <div>
+        <label for="pc">Checked: </label>
+        <select name="pc" id="pc">
+          <option value="0">0%</option>
+          <option value="5">100%</option>
+        </select>
+    </div>
+   
+</div>
+
+<button>Submit changes</button>
+
+</form>

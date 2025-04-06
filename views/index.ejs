@@ -1,0 +1,77 @@
+<%- include('./partials/head.ejs') %>
+
+<%- include('./partials/header.ejs') %>
+
+<div class="wrapper">
+    <div class="index__container">
+        <div class="button__container">
+            <div>
+                <h3>Liscio</h3>
+                <div class="ballo__buttons buttons__liscio">
+                    <% balli.forEach(ballo => { %>
+                        <% if (ballo.stile === 'liscio'){ %>
+                            <a hx-get="/<%=ballo.ballo%>"
+                                hx-swap="innerHTML"
+                                hx-target=".wrapper"
+                                hx-push-url="true"
+                            >
+                                <button
+                                hx-get="<%= ballo.ballo %>/img"
+                                hx-swap="outerHTML"
+                                hx-target=".content__container"
+                                hx-trigger="mouseenter"
+                                hx-push-url="false"><%= ballo.ballo %></button>
+                            </a>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+            <div>
+                <h3>Latino</h3>
+                <div class="ballo__buttons buttons__latino">
+                    <% balli.forEach(ballo => { %>
+                        <% if (ballo.stile === 'latino'){ %>
+                            <a hx-get="/<%=ballo.ballo%>"
+                                hx-swap="innerHTML"
+                                hx-target=".wrapper"
+                                hx-push-url="true"
+                            >
+                            <button
+                            hx-get="<%= ballo.ballo %>/img"
+                            hx-swap="outerHTML"
+                            hx-target=".content__container"
+                            hx-trigger="mouseenter"
+                            hx-push-url="false"><%= ballo.ballo %></button>
+                            </a>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+            <div>
+                <h3>Swing</h3>
+                <div class="ballo__buttons buttons__swing">
+                    <% balli.forEach(ballo => { %>
+                        <% if (ballo.stile === 'swing'){ %>
+                            <a hx-get="/<%=ballo.ballo%>"
+                                hx-swap="innerHTML"
+                                hx-target=".wrapper"
+                                hx-push-url="true"
+                            >
+                            <button
+                            hx-get="<%= ballo.ballo %>/img"
+                            hx-swap="outerHTML"
+                            hx-target=".content__container"
+                            hx-trigger="mouseenter"
+                            hx-push-url="false"><%= ballo.ballo %></button>
+                            </a>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+        <div class="content__container">
+    </div>
+     
+    </div>
+</div>
+

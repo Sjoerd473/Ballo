@@ -1,0 +1,29 @@
+
+<form
+hx-post="/<%= ballo %>/<%= passo %>/variazioni"
+hx-swap="innerHTML"
+hx-target=".wrapper"
+hx-push-url="true"
+class="var__form"
+>
+
+<% variazioni.forEach(variazione => { %>
+
+    <% if(variazione.passo_id === id[0].passo_id && variazione.imparato === true){ %>
+  
+        <div class="checkbox">
+            <input checked type="checkbox" name="varia" id=<%=variazione.variazione%> value=<%=variazione.var_id%>>
+            <label for=<%=variazione.variazione%>><%=variazione.variazione%></label>
+        </div>
+    <% } else if(variazione.passo_id === id[0].passo_id && variazione.imparato === false){ %>
+        <div class="checkbox">
+            <input type="checkbox" name="varia" id=<%=variazione.variazione%> value=<%=variazione.var_id%>>
+            <label for=<%=variazione.variazione%>><%=variazione.variazione%></label>
+        </div>
+    <% } %>
+    <% }); %>
+
+<button>Submit</button>
+</form>
+
+<!-- Use a for loop and i === pgresso to geenrate the right form -->

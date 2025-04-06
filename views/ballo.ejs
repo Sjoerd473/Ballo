@@ -1,0 +1,363 @@
+
+
+<%const bronzo1 = [] 
+const bronzo2 = [] 
+const bronzo3 = [] 
+const bronzo4 = [] %>
+<% let count = 1 %>
+<%passi.forEach(passo =>{ %>
+<%    if(passo.livello === 'bronzo 1'){ %>
+     
+<%        bronzo1.push(passo) %>
+<%    } else if (passo.livello === 'bronzo 2'){ %>
+<%        bronzo2.push(passo) %>
+
+<%    } else if (passo.livello === 'bronzo 3'){ %>
+<%        bronzo3.push(passo) %>
+
+<%  } else if (passo.livello === 'bronzo 4'){ %>
+<%      bronzo4.push(passo) %>
+<%  } %>
+<% }) %>
+
+<% function svgSelector(n){ %>
+ 
+ <%   if (n === 0) { %> 
+      <%  return `progresso0.svg`} %>
+ <%   if (n === 1) { %> 
+      <%  return `progresso1.svg`} %>
+ <%   if (n === 2) { %> 
+      <%  return `progresso2.svg`} %>
+ <%   if (n === 3) { %> 
+      <%  return `progresso3.svg`} %>
+ <%   if (n === 4) { %> 
+      <%  return `progresso4.svg`} %>
+ <%   if (n === 5) { %> 
+      <%  return `progresso5.svg`} %>
+    
+<%} %>
+
+<% function progressoColor(imp, check){ %>
+    <% console.log(check) %>
+<%if(Number(check) === 5){ %>
+   <% return 'perfetto' %>
+<% } else if (Number(imp) > 0){ %>
+    <% return 'imparato' %>
+<%} else{%>
+    <% return 'sconosciuto' %>
+<%}%>
+
+<% } %>
+// if imparato === 5 and checked is 5 > perfetto, only imparato 5 > imparato, imparato === 0 > sconosciuto
+<div class="livello__container">
+<% bronzo1.forEach(passo => { %>
+    <div class="passo__container <%=progressoColor(passo.imparato, passo.checked) %>">
+        <div 
+    
+        class="passo">
+            <p><%=count + '. ' + passo.passo %></p>
+            <% count++ %>
+            <div class="progresso__container">
+                <div>
+                    <h4>I</h4>
+                   
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/imparato/<%= passo.imparato %>"
+        hx-swap="innerHTML"
+          hx-target="closest div.progresso__container"
+        
+                    src="<%=svgSelector(passo.imparato) %>" alt="">
+                </div>
+                <div>
+                    <h4>P/P</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/piedi/<%= passo.piedi %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                     src="<%=svgSelector(passo.piedi) %>" alt="">
+                </div>
+                <div>
+                    <h4>T</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/tempo/<%= passo.tempo %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.tempo) %>" alt="">
+                </div>
+                <div>
+                    <h4>G/R</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/guida/<%= passo.guida %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.guida) %>" alt="">
+                </div>
+                <div>
+                    <h4>S</h4>
+             
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/stile/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.stile) %>" alt="">
+                </div>
+                <div>
+                    <h4>C</h4>
+                    <img 
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/checked/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.checked) %>" alt="">
+                </div>
+               
+                </div>
+        </div>
+        <div 
+        hx-get="/<%= ballo %>/<%=passo.passo  %>/variazioni"
+        hx-swap="outerHTML"
+          hx-target="closest div"
+        class="variazioni">
+            <ol type="A">
+                <% variazioni.forEach(variazione => { %>
+                    <% if(variazione.passo_id === passo.passo_id && variazione.imparato === true){ %>
+                    <li><%= variazione.variazione %></li>
+                <% }   }); %>
+            </ol>
+        </div>
+    </div>
+<% }); %>
+</div>
+<div class="livello__container">
+<% bronzo2.forEach(passo => { %>
+    <div class="passo__container <%=progressoColor(passo.imparato, passo.checked) %>">
+        <div
+       
+        class="passo">
+            <p><%=count + '. ' + passo.passo %></p>
+            <% count++ %>
+            <div class="progresso__container">
+                <div>
+                    <h4>I</h4>
+                   
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/imparato/<%= passo.imparato %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+        
+                    src="<%=svgSelector(passo.imparato) %>" alt="">
+                </div>
+                <div>
+                    <h4>P/P</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/piedi/<%= passo.piedi %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                     src="<%=svgSelector(passo.piedi) %>" alt="">
+                </div>
+                <div>
+                    <h4>T</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/tempo/<%= passo.tempo %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.tempo) %>" alt="">
+                </div>
+                <div>
+                    <h4>G/R</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/guida/<%= passo.guida %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.guida) %>" alt="">
+                </div>
+                <div>
+                    <h4>S</h4>
+             
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/stile/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.stile) %>" alt="">
+                </div>
+                <div>
+                    <h4>C</h4>
+                    <img 
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/checked/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.checked) %>" alt="">
+                </div>
+               
+                </div>
+        </div>
+        <div 
+        hx-get="/<%= ballo %>/<%=passo.passo  %>/variazioni"
+        hx-swap="outerHTML"
+        hx-target="closest div"
+        class="variazioni">
+            <ol type="A">
+                <% variazioni.forEach(variazione => { %>
+                    <% if(variazione.passo_id === passo.passo_id && variazione.imparato === true){ %>
+                    <li><%= variazione.variazione %></li>
+                <% }   }); %>
+            </ol>
+        </div>
+    </div>
+<% }); %>
+</div>
+<div class="livello__container">
+<% bronzo3.forEach(passo => { %>
+    <div class="passo__container <%=progressoColor(passo.imparato, passo.checked) %>">
+        <div 
+        
+        class="passo">
+            <p><%=count + '. ' + passo.passo %></p>
+            <% count++ %>
+            <div class="progresso__container">
+                <div>
+                    <h4>I</h4>
+                   
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/imparato/<%= passo.imparato %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+        
+                    src="<%=svgSelector(passo.imparato) %>" alt="">
+                </div>
+                <div>
+                    <h4>P/P</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/piedi/<%= passo.piedi %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                     src="<%=svgSelector(passo.piedi) %>" alt="">
+                </div>
+                <div>
+                    <h4>T</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/tempo/<%= passo.tempo %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.tempo) %>" alt="">
+                </div>
+                <div>
+                    <h4>G/R</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/guida/<%= passo.guida %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.guida) %>" alt="">
+                </div>
+                <div>
+                    <h4>S</h4>
+             
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/stile/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.stile) %>" alt="">
+                </div>
+                <div>
+                    <h4>C</h4>
+                    <img 
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/checked/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.checked) %>" alt="">
+                </div>
+               
+                </div>
+        </div>
+        <div
+        hx-get="/<%= ballo %>/<%=passo.passo  %>/variazioni"
+        hx-swap="outerHTML"
+          hx-target="closest div"
+        class="variazioni">
+            <ol type="A">
+                <% variazioni.forEach(variazione => { %>
+                    <% if(variazione.passo_id === passo.passo_id && variazione.imparato === true){ %>
+                    <li><%= variazione.variazione %></li>
+                <% }   }); %>
+            </ol>
+        </div>
+    </div>
+<% }); %>
+</div>
+<div class="livello__container">
+<% bronzo4.forEach(passo => { %>
+    <div class="passo__container <%=progressoColor(passo.imparato, passo.checked) %>">
+        <div
+        
+         class="passo">
+            <p><%=count + '. ' + passo.passo %></p>
+            <% count++ %>
+            <div class="progresso__container">
+                <div>
+                    <h4>I</h4>
+                   
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/imparato/<%= passo.imparato %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+        
+                    src="<%=svgSelector(passo.imparato) %>" alt="">
+                </div>
+                <div>
+                    <h4>P/P</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/piedi/<%= passo.piedi %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                     src="<%=svgSelector(passo.piedi) %>" alt="">
+                </div>
+                <div>
+                    <h4>T</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/tempo/<%= passo.tempo %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.tempo) %>" alt="">
+                </div>
+                <div>
+                    <h4>G/R</h4>
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/guida/<%= passo.guida %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.guida) %>" alt="">
+                </div>
+                <div>
+                    <h4>S</h4>
+             
+                    <img
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/stile/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.stile) %>" alt="">
+                </div>
+                <div>
+                    <h4>C</h4>
+                    <img 
+                    hx-get="/<%= ballo %>/<%=passo.passo  %>/checked/<%= passo.stile %>"
+        hx-swap="innerHTML"
+           hx-target="closest div.progresso__container"
+                    src="<%=svgSelector(passo.checked) %>" alt="">
+                </div>
+               
+                </div>
+        </div>
+        <div
+        hx-get="/<%= ballo %>/<%=passo.passo  %>/variazioni"
+        hx-swap="outerHTML"
+          hx-target="closest div"
+        class="variazioni">
+            <ol type="A">
+                <% variazioni.forEach(variazione => { %>
+                    <% if(variazione.passo_id === passo.passo_id && variazione.imparato === true){ %>
+                    <li><%= variazione.variazione %></li>
+                <% }   }); %>
+            </ol>
+        </div>
+    </div>
+<% }); %>
+</div>

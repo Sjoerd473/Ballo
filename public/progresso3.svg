@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Livello_2" data-name="Livello 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 75 75.03">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #706f6f;
+      }
+
+      .cls-2 {
+        fill: #2e2d2c;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #1d1d1b;
+        stroke-linecap: round;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+    </style>
+  </defs>
+  <g id="Livello_1-2" data-name="Livello 1">
+    <polyline class="cls-3" points="73.5 1.5 37.5 37.5 1.5 73.5"/>
+    <polyline class="cls-3" points="73.5 73.5 37.5 37.5 1.5 1.5"/>
+    <polygon class="cls-2" points=".06 73.5 .06 1.5 36.06 37.5 .06 73.5"/>
+    <polygon class="cls-1" points="73.5 75.03 1.5 75.03 37.5 39.03 73.5 75.03"/>
+  </g>
+</svg>

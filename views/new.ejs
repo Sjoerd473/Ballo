@@ -1,0 +1,36 @@
+
+
+<form
+hx-post="/new"  
+hx-swap="outerHTML"
+hx-target=".wrapper"
+  hx-push-url="true" >
+  <label for="ballo">Scelgi ballo:</label>
+  <select name="ballo" id="ballo">
+  <option value="custom">Custom</option>
+</select>
+  <div>
+      <label for="move">Nome:</label>
+      <input type="text" id="passo" name="passo">
+  </div>
+
+  <div>
+      <label for="livello">Livello:</label>
+      <input type="text" id="livello" name="passo">
+  </div>
+<fieldset>
+    <legend>Variazione?</legend>
+  <div>
+      <label for="variazione">Si</label>
+      <input
+      onclick="document.querySelector('#addVar').classList.toggle('hidden')"
+       type="checkbox" name="variazione" id="variazione">
+  </div>
+</fieldset>
+
+  <div id="addVar" class="addVar hidden">
+      <label for="">Nome Variazione: </label>
+      <input type="text" name="variazione" id="variazione">
+  </div>
+   <button>Submit</button>
+</form>

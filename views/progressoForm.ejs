@@ -1,0 +1,58 @@
+<% const percent =['0%', '20%', '40%',  '60%', '80%','100%'] %>
+<%const pc =['0%', '100%'] %>
+<% const values = [0,1,2,3,4,5] %>
+<% const pcValues = [0,5] %>
+
+
+<% if (progresso !== 'checked'){ %>
+   
+    <form
+    hx-post="/<%= ballo %>/<%= passo %>/<%= progresso %>/"
+    hx-swap="innerHTML"
+    hx-target=".wrapper"
+    hx-trigger="click"
+    class="prog-form"
+   >
+    
+    <% values.forEach(value => { %>
+        
+        <%if(value === Number(cifro)){ %>
+            <div>
+                <input checked type="radio" id="<%= progresso %>" name="imparato" value="<%= value %>">
+                <label for="<%= progresso %>"><%= percent[value] %></label>
+                </div>
+                <% } else{ %>
+                    <div>
+                        <input type="radio" id="<%= progresso %>" name="imparato" value="<%= value %>">
+                        <label for="<%= progresso %>"><%= percent[value] %></label>
+                    </div>
+                    <% } %>
+                    <% }); %>
+                    
+                    </form>
+               <% } else{ %>
+                <form
+    hx-post="/<%= ballo %>/<%= passo %>/<%= progresso %>/"
+    hx-swap="innerHTML"
+    hx-target=".wrapper"
+    hx-trigger="click"
+    class="prog-form"
+    >
+    
+    <% pcValues.forEach(value => { %>
+       
+        <%if(value === Number(cifro)){ %>
+            <div>
+                <input checked type="radio" id="<%= progresso %>" name="imparato" value="<%= value %>">
+                <label for="<%= progresso %>"><%= percent[value] %></label>
+                </div>
+                <% } else{ %>
+                    <div>
+                        <input type="radio" id="<%= progresso %>" name="imparato" value="<%= value %>">
+                        <label for="<%= progresso %>"><%= percent[value] %></label>
+                    </div>
+                    <% } %>
+                    <% }); %>
+                    
+                    </form>
+              <% }%>
